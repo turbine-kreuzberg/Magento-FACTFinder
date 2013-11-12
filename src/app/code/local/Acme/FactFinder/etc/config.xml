@@ -7,10 +7,19 @@
         </Acme_FactFinder>
     </modules>
     <global>
+        <blocks>
+            <acme_factfinder>
+                <class>Acme_FactFinder_Block</class>
+            </acme_factfinder>
+        </blocks>
         <models>
             <acme_factfinder>
                 <class>Acme_FactFinder_Model</class>
+                <resourceModel>acme_factfinder_resource</resourceModel>
             </acme_factfinder>
+            <acme_factfinder_resource>
+                <class>Acme_FactFinder_Model_Resource</class>
+            </acme_factfinder_resource>
             <factfinder>
                 <rewrite>
                     <export_product>Acme_FactFinder_Model_Export_Product</export_product>
