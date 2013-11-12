@@ -61,7 +61,7 @@ class Flagbit_FactFinder_ExportController extends Mage_Core_Controller_Front_Act
     {
 		try
 		{
-			$this->lockSemaphore();
+//			$this->lockSemaphore();
 		}
 		catch(RuntimeException $e)
 		{

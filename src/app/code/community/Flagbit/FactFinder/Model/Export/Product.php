@@ -588,7 +588,7 @@ class Flagbit_FactFinder_Model_Export_Product extends Mage_CatalogSearch_Model_M
 		// get attributes objects assigned to their position at the export
 		if ($this->_exportAttributes == null) {
 			$this->_exportAttributes = array_fill(0, sizeof($this->_getExportAttributes()), null);
-			
+
 			$attributeCodes = array_flip($this->_getExportAttributes());
 			foreach ($this->_getSearchableAttributes() as $attribute) {
 				if (isset($attributeCodes[$attribute->getAttributeCode()]) && !in_array($attribute->getAttributeCode(), array('sku', 'status', 'visibility'))) {
