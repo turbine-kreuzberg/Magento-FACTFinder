@@ -205,9 +205,6 @@ class FACTFinder_Asn_Model_Handler_Search extends FACTFinder_Core_Model_Handler_
     protected function _prepareOption(FACTFinder\Data\Filter $option, $filterGroup, $filterValue)
     {
         $label = $option->getLabel();
-        if ($filterGroup->getUnit()) {
-            $label .= ' ' . $filterGroup->getUnit();
-        }
 
         $option = array(
             'type'         => 'attribute',
@@ -219,6 +216,13 @@ class FACTFinder_Asn_Model_Handler_Search extends FACTFinder_Core_Model_Handler_
             'requestVar'   => 'filter' . $option->getFieldName(),
             'previewImage' => $option->getPreviewImage()
         );
+        
+        if ($filterGroup->getUnit()) {
+            $option['rawLabel'] = $label;
+            $option['unit']     = $filterGroup->getUnit();
+            $label .= ' ' . $filterGroup->getUnit();
+            $option['label'] = $label;
+        }
 
         return $option;
     }
