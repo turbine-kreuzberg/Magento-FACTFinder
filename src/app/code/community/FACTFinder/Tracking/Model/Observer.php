@@ -209,6 +209,16 @@ class FACTFinder_Tracking_Model_Observer
     public function processOrderQueue()
     {
         if (!Mage::helper('factfinder')->isEnabled('tracking')) {
+            $stores = Mage::app()->getStores();
+            foreach($stores as $store) {
+                if ($store->getConfig('factfinder/search/enabled') && $store->getConfig('factfinder/modules/tracking')) {
+                    Mage::app()->setCurrentStore($store); 
+                }
+                break;
+            }
+        }
+
+        if (!Mage::helper('factfinder')->isEnabled('tracking')) {
             return;
         }
 
