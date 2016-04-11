@@ -63,7 +63,7 @@ class FACTFinder_Core_Model_Autoloader
         $classFile = str_replace('\\', '/', $class) . '.php';
 
         if (strpos($classFile, '/') !== false) {
-            include $classFile;
+            @include $classFile;
         }
     }
 
